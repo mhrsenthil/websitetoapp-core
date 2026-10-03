@@ -19,6 +19,7 @@ android {
         targetSdk = 35
         versionCode = versionCodeValue.get()
         versionName = versionNameValue.get()
+        resValue("string", "app_name", appName.get())
     }
 
     buildTypes {
@@ -35,15 +36,11 @@ android {
         buildConfig = true
     }
 
-    defaultConfig {
-        resValue("string", "app_name", appName.get())
-    }
-
     buildTypes.all {
         buildConfigField(
             "String",
             "WEB_URL",
-            "\"${websiteUrl.get().replace("\", "\\").replace(""", "\"")}\""
+            "\"${websiteUrl.get()}\""
         )
     }
 }
